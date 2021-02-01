@@ -50,7 +50,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     txt = "Voltage:%5.2fV " % readVoltage(bus)
-    txt.= "Battery:%5i%%" % readCapacity(bus)
+    txt+= "Battery:%5i%%" % readCapacity(bus)
     return txt
 
     
