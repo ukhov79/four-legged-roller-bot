@@ -7,22 +7,23 @@ nano /etc/systemd/system/robot-script.service
 chmod 664 /etc/systemd/system/robot-script.service
 
 /etc/systemd/system/robot-script.service:
-
+```
 [Unit]
 Description=Robot script
-After=network.target
+After=syslog.target network.target
+
 [Service]
-Type=notify
+Type=simple
 User=root
 Restart=on-failure
 RestartSec=60s
 ExecStart=/root/copy.sh
 ExecReload=/root/copy.sh
-[Install]
-WantedBy=multi-user.target
+```
 
 /root/copy.sh:
 
+```bash
 #!/bin/bash
 P_D='/root'
 cd "$P_D"
@@ -30,5 +31,6 @@ rm -rf four-legged-roller-bot
 git clone https://github.com/ukhov79/four-legged-roller-bot
 cd four-legged-roller-bot
 python3 start.py <ip_adress>
+```
 
 systemctl enable robot-script.service
