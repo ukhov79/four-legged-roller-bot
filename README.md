@@ -4,7 +4,6 @@ Four-legged roller bot is a project of small quadroped robot with 4 rollers on l
 Use DietPi OS from here: https://dietpi.com/
 
 nano /etc/systemd/system/robot-script.service
-chmod 664 /etc/systemd/system/robot-script.service
 
 /etc/systemd/system/robot-script.service:
 ```
@@ -21,8 +20,11 @@ ExecStart=/root/copy.sh
 ExecReload=/root/copy.sh
 ```
 
-/root/copy.sh:
+chmod 664 /etc/systemd/system/robot-script.service
 
+nano /root/copy.sh
+
+/root/copy.sh:
 ```bash
 #!/bin/bash
 P_D='/root'
