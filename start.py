@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Превед!'
+    return 'Hello!'
     
 if __name__ == '__main__':
     app.secret_key = os.urandom(12)
