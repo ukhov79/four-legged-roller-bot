@@ -55,7 +55,7 @@ def hello():
     txt+= "Battery:%5i%% " % readCapacity(bus)
     now = datetime.now()
     duration = now - then
-    txt+= "Duration:%5ims" % duration.microseconds
+    txt+= "Duration:%5imks" % duration.microseconds
     return txt
 
     
