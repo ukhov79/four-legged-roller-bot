@@ -7,6 +7,7 @@ import smbus
 import sys
 import time
 import RPi.GPIO as GPIO
+from datetime import datetime
 
 def readVoltage(bus):
 
@@ -49,8 +50,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
+    then = datetime.now()
     txt = "Voltage:%5.2fV " % readVoltage(bus)
-    txt+= "Battery:%5i%%" % readCapacity(bus)
+    txt+= "Battery:%5i%% " % readCapacity(bus)
+    now = datetime.now()
+    duration = now - then
+    txt+= "Duration:%5ims" % duration.microseconds
     return txt
 
     
