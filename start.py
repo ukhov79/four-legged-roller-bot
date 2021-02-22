@@ -6,7 +6,6 @@ import struct
 import smbus
 import sys
 import time
-import RPi.GPIO as GPIO
 from datetime import datetime
 
 def readVoltage(bus):
