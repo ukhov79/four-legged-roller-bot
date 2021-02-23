@@ -18,6 +18,9 @@ Restart=on-failure
 RestartSec=60s
 ExecStart=/root/copy.sh
 ExecReload=/root/copy.sh
+
+[Install]
+WantedBy=multi-user.target 
 ```
 
 chmod 664 /etc/systemd/system/robot-script.service
